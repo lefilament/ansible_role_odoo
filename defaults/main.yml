@@ -1,0 +1,97 @@
+---
+
+## Odoo configuration
+## URL for setting certificate
+odoo_url: "odoo.example.org"
+## OPTIONAL : you can define whether you also want to authorize the same above URL with www. in front with the following variable
+# www_site: true
+## OPTIONAL : you can define a second URL to access you Odoo instance (which can also be combined with the above www_site)
+# odoo_url2: "odoo2.example.org"
+
+## Odoo Master password
+odoo_master_pass: "odooMasterPasswordToBeModified"
+
+## E-mail used to generate Let's Encrypt SSL certificate
+default_maintenance_email: "maintenance@example.org"
+
+## Odoo vesion and daemon name
+odoo_version: "10.0"
+odoo_bin_name: "odoo-bin"
+
+## Custom modules developped by Le Filament (from https://sources.le-filament.com/lefilament)
+custom_modules_base_url: "https://sources.le-filament.com/lefilament"
+odoo_custom_modules:
+  - automatic_bank_statement_import
+  - lefilament_export_journal
+
+## Odoo modules to be retrieved from OCA (https://github.com/OCA)
+odoo_custom_modules_oca:
+  - repo: server-tools
+    modules:
+      - auto_backup
+      - date_range
+      - database_cleanup
+  - repo: bank-statement-import
+    modules:
+      - account_bank_statement_import_ofx
+  - repo: account-financial-reporting
+    modules:
+      - account_tax_balance
+  - repo: knowledge
+    modules:
+      - document_page
+      - knowledge
+  - repo: partner-contact
+    modules:
+      - partner_firstname
+  - repo: social
+    modules:
+      - mail_restrict_follower_selection
+  - repo: web
+    modules:
+      - web_export_view
+
+## Bank configuration - for Odoo automatic retrieval of statements (based on https://woob.tech/)
+## Should auto retrieval be activated ?
+banking: false
+## Bank name
+bank: "caissedepargne"
+## Bank website (if required by woob)
+bank_website: "www.caisse-epargne.fr"
+## Bank user
+bank_login: "12345677890"
+## Bank user id (if required by your bank)
+bank_userid: "0001"
+## Bank password
+bank_pass: "123456"
+## Bank account
+bank_account: "bankaccount1"
+## This role allows for defining up to 3 accounts for this bank, but also a second bank and 2 accounts with the following variables :
+# bank_account2: "bankaccount2"
+# bank_account3: "bankaccount3"
+# bank2: "cragr"
+# bank2_login: "12345677890"
+# bank2_pass: "123456"
+# bank2_userid: "0001"
+# bank2_account: "bank2account1"
+# bank2_account: "bank2account2"
+
+## Backups
+## Parameters for pushing backups to Object Storage - Instance 1
+swift_odoo_authurl: https://auth.cloud.ovh.net/v3/
+swift_odoo_authversion: 3
+swift_odoo_tenantid: "132e1fa"
+swift_odoo_tenantname: "12312534534"
+swift_odoo_username: "testuser"
+swift_odoo_password: "testpassword"
+swift_odoo_regionname: "GRA"
+## Parameters for pushing backups to Object Storage - Instance 2
+swift_odoo2_authurl: https://auth.cloud.ovh.net/v3/
+swift_odoo2_authversion: 3
+swift_odoo2_tenantid: "12323534ab"
+swift_odoo2_tenantname: "123124235345"
+swift_odoo2_username: "testuser"
+swift_odoo2_password: "testpassword"
+swift_odoo2_regionname: "DE"
+## Passphrase for backups encryption
+odoo_backup_pass: notSecureEnoughPasswordToBeModified

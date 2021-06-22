@@ -1,0 +1,6 @@
+---
+odoo_user: odoo
+odoo_home: /opt/odoo
+odoo_port: 8069
+
+odoo_config_name: odoo-server
